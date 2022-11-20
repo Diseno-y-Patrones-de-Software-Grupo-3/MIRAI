@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AppointmentModule } from './appointment/appointment.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { AppService } from './app.service';
         'dist/shared/infrastructure/persistence/migrations/*{.ts,.js}'
       ],
       migrationsTableName: "migrations"
-    })
+    }),
+    AppointmentModule
 ],
   controllers: [AppController],
   providers: [AppService],
